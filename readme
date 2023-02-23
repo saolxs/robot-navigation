@@ -1,0 +1,50 @@
+Welcome to a Project by StackOverflow Researchers
+
+In this project, we were challenged by a leading government organization with deploying a robot
+that will scan its surroundings for suspicious objects. To see our project in action, follow the steps below:
+
+Step 1 :
+In the sigularity terminal, Run:
+- wget https://lamp.ms.wits.ac.za/robotics/robot_assignment_ws.tar.gz --no-certificate; tar zxvf robot_assignment_ws.tar.gz
+- cd robot_assignment_ws
+- rm -r build
+- catkin_make
+
+Step 2:
+In the robot_assignment_ws workspace, Run:
+- catkin_create_pkg scripts_pkg std_msgs rospy  (to create a scripts_pkg package)
+- cd ..; catkin_make
+- source devel/setup.bash
+- roscd scripts_pkg
+- mkdir scripts; cd scripts
+
+Step 3:
+- Unzip the project folder
+- Move the "Autonomous_Security_Bot.py" file to the scripts folder created in Step 2
+- Move the "refined_map.pgm" file to robot_assignment_ws workspace
+In sigularity, while inside the scripts directory, run:
+- chmod +x *.py
+
+Step 4:
+In sigularity, while inside the robot_assignment_ws workspace, run:
+- source devel/setup.bash
+- ./startWorld
+In a new terminal, run:
+- source devel/setup.bash
+- rosrun scripts_pkg Autonomous_Security_Bot.py
+
+
+***OUTPUT***
+Enter Goal Destination - x: "input your x value"
+Enter Goal Destination - y: "input your y value"
+Finding motion path using PRM (this may take a while)...
+
+
+***IMPORTANT***
+If you are prompted with a "networkx not found" error message on terminal, try:
+- pip install networkx
+if you get a pip error, run:
+- wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
+- python get-pip.py
+- pip install --upgrade setuptools
+- pip install networkx or pip install "networkx==2.2"
